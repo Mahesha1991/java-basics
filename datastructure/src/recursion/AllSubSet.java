@@ -15,6 +15,7 @@ public class AllSubSet {
 
     }
     public static void main(String args[]){
+        long start = System.currentTimeMillis();
         AllSubSet allSubSet = new AllSubSet();
         Scanner s = new Scanner(System.in);
         String str = "";
@@ -24,7 +25,8 @@ public class AllSubSet {
             str = s.nextLine();
             allSubSet.subSets(str,"",0);
             System.out.println();
-        }while(str != "");
-
+        }while(str == "");
+        long end = System.currentTimeMillis();
+        System.out.println("Final Time: " + (end-start)/1000L);
     }
 }
