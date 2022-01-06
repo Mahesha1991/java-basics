@@ -54,6 +54,7 @@ public class SortedList {
     }
 
     public static void main(String [] args){
+        long start = System.currentTimeMillis();
         SortedList sl = new SortedList();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of elements in the list: ");
@@ -63,5 +64,7 @@ public class SortedList {
             sl.sortedInsert((int)(Math.random()*multiplier));
         }
         sl.display();
+        long end = System.currentTimeMillis();
+        System.out.println("Total time taken: " + ((end-start)/1000f) + " seconds");
     }
 }
