@@ -66,9 +66,10 @@ public class SortedList {
         sl.display();
         long end = System.currentTimeMillis();
         System.out.println("Total time taken: " + ((end-start)/1000f) + " seconds");
-        ListNode ln = null;
-        ln = new ListNode(20,true);
-        sl.node = ln;
+
+        LinkedListOps llo = new LinkedListOps();
+        sl.node = llo.sortedInsert(30);
         sl.display();
+
     }
 }

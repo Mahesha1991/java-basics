@@ -26,7 +26,8 @@ public class ReverseList {
     }
     public static void main(String args[]){
         ReverseList rl = new ReverseList();
-        rl.node = new ListNode(10,true);
+        LinkedListOps llo = new LinkedListOps();
+        rl.node = llo.insert(5,true);
         rl.display();
         rl.reverse();
         rl.display();
