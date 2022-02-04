@@ -37,8 +37,8 @@ public class MergeSortedList {
     public static void main(String[] args) {
         MergeSortedList msl = new MergeSortedList();
         LinkedListOps llo = new LinkedListOps();
-        msl.l1 = llo.sortedInsert(20);
-        msl.l2 = llo.sortedInsert(25);
+        msl.l1 = llo.sortedInsert(2000);
+        msl.l2 = llo.sortedInsert(2500);
 
         llo.display(msl.l1);
         llo.display(msl.l2);
