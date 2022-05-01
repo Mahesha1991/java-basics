@@ -1,4 +1,4 @@
-package linkedlist;
+package recursion.linkedlist;
 
 public class ListNode {
 

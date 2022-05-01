@@ -7,7 +7,7 @@ public class TreeMain {
         TreeMain tm = new TreeMain();
         TreeOps to = new TreeOps();
 
-        to.insertCount(1000);
+        to.insertCount(20);
 
         System.out.println("PreOrder: ");
         to.preOrderDisplay();
@@ -17,5 +17,9 @@ public class TreeMain {
 
         System.out.println("PostOrder: ");
         to.postOrderDisplay();
+
+        System.out.println("Tree Height: " + to.getHeight());
+
+        System.out.println("Max Tree Element: " + to.maxElement());
     }
 }

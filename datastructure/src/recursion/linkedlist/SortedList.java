@@ -1,6 +1,5 @@
-package linkedlist;
+package recursion.linkedlist;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class SortedList {

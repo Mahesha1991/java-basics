@@ -1,33 +1,44 @@
-package tree;
+package bst;
 
-public class TreeOps {
+public class BSTOps {
 
     private int multiplier = 0;
-    private TreeNode root;
+    private BSTNode root;
 
-    public void insertCount(int count){
+    //Not guaranteed as there might be duplicate random number generated
+    public void insertMaxCount(int count){
         multiplier = count < 10 ? 1000 : count;
 
         if(root == null){
-            root = new TreeNode((int) (Math.random() * multiplier));
+            root = new BSTNode((int) (Math.random() * multiplier));
         }
-        for(int i = 0; i < count-1; i++)
-            randomInsert(root);
+        for(int i = 0; i < count-1; i++){
+            int element = (int) (Math.random() * multiplier);
+            System.out.print("Ele: " + element + " ");
+            randomInsert(root, element);
+        }
+
     }
 
-    private void randomInsert(TreeNode root) {
-        boolean isLeft = Math.random() < 0.5;
+    private void randomInsert(BSTNode root, int element) {
+        if (root.data == element){
+            // As this is exact same number, we are ignoring
+            return;
+        }
+        boolean isLeft = root.data > element;
         if(isLeft){
             if(root.left == null){
-                root.left = new TreeNode((int) (Math.random() * multiplier));
+                System.out.print("In left: " + element + " ");
+                root.left = new BSTNode(element);
             }else{
-                randomInsert(root.left);
+                randomInsert(root.left,element);
             }
         }else{
             if(root.right == null){
-                root.right = new TreeNode((int) (Math.random() * multiplier));
+                System.out.print("In right: " + element + " " );
+                root.right = new BSTNode(element);
             }else{
-                randomInsert(root.right);
+                randomInsert(root.right,element);
             }
         }
     }
@@ -37,7 +48,7 @@ public class TreeOps {
         System.out.println();
     }
 
-    private void inOrder(TreeNode root) {
+    private void inOrder(BSTNode root) {
         if (root != null){
             inOrder(root.left);
             System.out.print(root.data + " ");
@@ -50,7 +61,7 @@ public class TreeOps {
         System.out.println();
     }
 
-    private void preOrder(TreeNode root) {
+    private void preOrder(BSTNode root) {
         if (root != null){
             System.out.print(root.data + " ");
             preOrder(root.left);
@@ -62,7 +73,7 @@ public class TreeOps {
         System.out.println();
     }
 
-    private void postOrder(TreeNode root) {
+    private void postOrder(BSTNode root) {
         if (root != null){
             postOrder(root.left);
             postOrder(root.right);
@@ -74,7 +85,7 @@ public class TreeOps {
         return getTreeHeight(root);
     }
 
-    private int getTreeHeight(TreeNode root) {
+    private int getTreeHeight(BSTNode root) {
         if(root == null){
             return 0;
         }
@@ -89,7 +100,7 @@ public class TreeOps {
         return maxTreeElement(root);
     }
 
-    private int maxTreeElement(TreeNode root) {
+    private int maxTreeElement(BSTNode root) {
         if (root == null){
             return Integer.MIN_VALUE;
         }
@@ -99,6 +110,23 @@ public class TreeOps {
     private int max(int a, int b, int c){
         int temp = a > b ? a : b;
         return (temp > c ? temp : c);
+    }
+
+    public boolean find(int element){
+        return findBST(root,element);
+    }
+
+    private boolean findBST(BSTNode root, int element) {
+        if(root == null){
+            return false;
+        }
+        if(root.data == element){
+            return true;
+        }
+        if(root.data > element){
+            return findBST(root.left,element);
+        }
+        return findBST(root.right, element);
     }
 
 }
