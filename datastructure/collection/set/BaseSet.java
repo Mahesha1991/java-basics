@@ -17,10 +17,17 @@ public class BaseSet {
         hs.add("where");
         System.out.println(hs);
 
+        //primite type cannot be added to hashset. This need to be changed to wrapper class
         int baseArray[] = {45,65,34,67,89,23,45,32,23};
         HashSet<Integer> hi = new HashSet(Arrays.asList(baseArray));
         // This prints object value/address: [[I@7a81197d]
         System.out.println(hi);
+
+        Integer base2Array[] = {34,56,76,45,43,23,21,456,23};
+        HashSet<Integer> hii = new HashSet<>(Arrays.asList(base2Array));
+        System.out.println(hii);
+
+
 
         Iterator<Integer> i = hi.iterator();
         while(i.hasNext())
