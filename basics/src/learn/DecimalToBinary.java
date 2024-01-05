@@ -11,7 +11,7 @@ public class DecimalToBinary {
 
         int num = sc.nextInt();
         //String bin = "";
-        StringBuilder bin = new StringBuilder("");
+        StringBuilder bin = new StringBuilder();
         while(num > 0){
             bin.insert(0,num % 2);
             num = num / 2;
