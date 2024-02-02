@@ -11,5 +11,8 @@ public class LastDigit {
         int num = sc.nextInt();
         num = num % 10;
         System.out.printf("Last digit is : %d",num);
+        LastDigit ld = new LastDigit();
+
+        System.out.println(ld.getClass().getName());
     }
 }
