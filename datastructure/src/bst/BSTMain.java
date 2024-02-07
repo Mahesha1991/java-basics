@@ -23,5 +23,11 @@ public class BSTMain {
         System.out.println("Max Tree Element: " + bo.maxElement());
 
         System.out.println("Find BST 25 : " + bo.find(25));
+
+        bo.removeNode(8);
+
+        System.out.println("InOrder: ");
+        bo.inOrderDisplay();
+
     }
 }

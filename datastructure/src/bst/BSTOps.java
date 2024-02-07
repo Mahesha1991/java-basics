@@ -129,4 +129,37 @@ public class BSTOps {
         return findBST(root.right, element);
     }
 
+    public void removeNode(int i) {
+        root = remove(root,i);
+    }
+
+    private BSTNode remove(BSTNode root, int i) {
+        if (root == null)
+            return null;
+        if (root.data > i){
+            root.left = remove(root.left,i);
+        } else if (root.data < i){
+            root.right = remove(root.right,i);
+        } else {
+            System.out.println("Found Delete");
+            if (root.left == null){
+                return root.right;
+            } else if (root.right == null){
+                return root.left;
+            } else {
+                int min = findMin(root.right);
+                root.data = min;
+                root.right = remove(root.right,min);
+            }
+        }
+        return root;
+    }
+
+    private int findMin(BSTNode root) {
+
+        while(root.left != null){
+            root = root.left;
+        }
+        return root.data;
+    }
 }
