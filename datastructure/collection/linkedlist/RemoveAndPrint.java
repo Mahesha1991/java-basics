@@ -1,13 +1,25 @@
 package linkedlist;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
 
 public class RemoveAndPrint {
 
     public static void main(String[] args) {
 
         LinkedList<Integer> list = new LinkedList<>();
+
+        ArrayList<Integer> a = new ArrayList();
+
+
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        System.out.println(a);
+        a.remove((Object)3);
+        System.out.println(a);
 
         list.add(10);
         list.add(5);
