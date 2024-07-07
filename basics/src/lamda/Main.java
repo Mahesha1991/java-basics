@@ -18,7 +18,7 @@ public class Main {
 
         int arr[] = {30,40,60};
         int sum = Arrays.stream(arr).sum();
-        System.out.println(sum);
+        System.out.println(sum); 
 
         //Infinite Stream
 
