@@ -27,6 +27,11 @@ public class JDKFunctionalInterface {
         Predicate<Integer> isEven = num -> num % 2 == 0;
         System.out.println(isEven.test(23));
 
+        // Similaryly we have BiFuncation -> Takes two input arguments and one return type
+        // BiConsumer -> Takes two input arguments and returns nothing
+        // BiPredicate -> Takes two input arguments and returns boolean
+        // There is no BiSupplier as Supplier will not take any argument
+
         // When we have same input and output (Function) -> same argument and return value type
         UnaryOperator<Integer> increment = x -> x + 1;
         System.out.println(increment.apply(10));
