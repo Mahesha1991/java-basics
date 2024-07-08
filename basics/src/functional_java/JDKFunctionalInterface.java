@@ -1,15 +1,13 @@
 package functional_java;
 
-import java.util.function.Function;
+import java.util.function.*;
 
 // Take one argument and returns nothing (It consumes)
-import java.util.function.Consumer;
 
 // Takes no argument and return something (It supplies)
-import java.util.function.Supplier;
 
 // Takes one argument and predicts true or false
-import java.util.function.Predicate;
+
 
 public class JDKFunctionalInterface {
 
@@ -28,6 +26,12 @@ public class JDKFunctionalInterface {
 
         Predicate<Integer> isEven = num -> num % 2 == 0;
         System.out.println(isEven.test(23));
+
+        // When we have same input and output (Function) -> same argument and return value type
+        UnaryOperator<Integer> increment = x -> x + 1;
+        System.out.println(increment.apply(10));
+
+        // Same with BinaryOperator
 
 
     }
