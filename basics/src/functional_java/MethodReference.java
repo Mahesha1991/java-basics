@@ -1,11 +1,17 @@
 package functional_java;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.function.UnaryOperator;
 
 //Lambda Calling Other Function. The Syntax could be written in different way
+//This is like a shortcut to that calling function.
 public class MethodReference {
     public static void main(String[] args) {
 
@@ -27,6 +33,26 @@ public class MethodReference {
 
         Function<Person, String> getNameWithMethodReference = Person::getName;
         System.out.println(getNameWithMethodReference.apply(new Person("Cena")));
+
+        Person p1 = new Person("foo");
+        Person p2 = new Person("poo");
+
+        //BiPredicate<Person, Person> equalPerson = (per1, per2) -> per1.equals(per2);
+        // Same as
+        BiPredicate<Person, Person> equalPerson = Person::equals;
+        System.out.println(equalPerson.test(p1,p2));
+
+        Function<List<String>, Integer> getCount = List::size;
+        System.out.println(getCount.apply(new ArrayList<>()));
+
+        Function<List<String> , Collection<String>> deDepulicate = list -> new HashSet<>(list);
+        //In the above the constructor of HashSet is called which is also a method. So the lambda shortcut for that is:
+        System.out.println(deDepulicate.apply(List.of("hello", "world", "hello")));
+
+        Function<List<String>, Collection<String>> deDepulicateLambda = HashSet::new;
+        System.out.println(deDepulicateLambda.apply(List.of("hello1", "world1", "world1")));
+
+
     }
 }
 
