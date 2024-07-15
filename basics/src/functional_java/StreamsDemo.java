@@ -53,5 +53,23 @@ public class StreamsDemo {
 
         System.out.println(hundred);
 
+        // Filter takes predicate
+        Stream<Integer> allNumbers = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        Stream<Integer> evenNumbers = allNumbers.filter(x -> x % 2 == 0);
+        evenNumbers.forEach(System.out::println);
+
+        //Map will apply/modify the needed stream and creates a new stream
+        Stream<String> fruits = Stream.of("apple", "banana", "mango", "strawberry");
+        fruits.map(String::toUpperCase)
+                .peek(x -> System.out.println("Peek: " + x))
+                .filter(name -> name.length() < 6)
+                .forEach(x -> System.out.println(x));
+
+        Stream<Integer> allNumbers2 = Stream.of(1, 2, 3, 4, 50, 6, 7, 8, 9, 10, 6, 7, 8, 9);
+        allNumbers2.distinct()
+                .sorted()
+                .forEach(System.out::println);
+
+
     }
 }
