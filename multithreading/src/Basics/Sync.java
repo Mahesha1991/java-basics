@@ -1,5 +1,40 @@
 package Basics;
 
+
+/* Liveness
+
+Continuous flow of code
+DeadLock ->
+
+1. thread1-> synchronized (obj1){
+    //..
+    synchronized (obj2){
+    }
+   }
+
+ thread2 -> synchronized (obj2){
+    //..
+    synchronized (obj1){
+    }
+   }
+
+ 2. Circular synchronized deadlock while a thread is locked on obj1, then obj2 and then obj1
+ 3. Thread.join() where two thread waiting on one another to complete
+
+ LiveLock ->
+ To solve deadlock we can introduce timed waiting. However,
+ if thread 1 gets lock on obj1
+ thread 2 gets lock on obj2
+
+ if now thread 1 wants to get lock on obj2 and thread 2 wants to get lock on obj1,
+ then there is deadlock.
+ If we introduce waiting timing then both these thread will sleep and then again tries to get the lock
+ and then sleep and get lock and this continues
+
+ Starvation ->
+ Thread with lower priority will never start as new threads with higher priority keeps getting executed
+
+ */
 class ThisIsNotInSync implements  Runnable{
     private Integer value = 0;
 
