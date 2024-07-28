@@ -65,7 +65,15 @@ class ThisIsInSync implements  Runnable{
 
 public class Sync {
 
+    // Volatile makes sure that the variables are read from the memory and updated directly to memory
+    // In general, all variables will be read from Memory, updated in L1/L2 cache of CPU
+    // Updates the values in the cache L1/L2 and gets it L3 (if needed ) and from there it will be put
+    // back to the memory. If we use volatile it directly read and update memory itself
+    // This increases the visibility; but does not guarantee synchronization.
+    private volatile int a = 0;
+
     public static void main(String[] args) throws InterruptedException {
+
 
         ThisIsNotInSync isNotInSync = new ThisIsNotInSync();
 
