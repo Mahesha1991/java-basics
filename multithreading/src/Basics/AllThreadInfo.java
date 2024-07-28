@@ -1,10 +1,29 @@
 package Basics;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class FirstMain {
+public class AllThreadInfo {
 
     public static void main(String[] args) throws InterruptedException {
+
+        List<Thread> threadList = new ArrayList<>();
+
+        Runnable statusReporter = () -> {
+            try{
+                while(true){
+                    Thread.sleep(5000);
+                    printThreads(threadList);
+                }
+            }catch (InterruptedException e){
+                System.out.println("Interrupted");
+            }
+        };
+
+        Thread reporterThread = new Thread(statusReporter);
+        reporterThread.setDaemon(true);
+        reporterThread.start();
 
         FirstMain firstMain = new FirstMain();
         Scanner in = new Scanner(System.in);
@@ -16,11 +35,11 @@ public class FirstMain {
                 @Override
                 public void run() {
                     System.out.println("Num of primes under " + num + " is : " + firstMain.primeNumber(num));
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+//                    try {
+//                        Thread.sleep(2000);
+//                    } catch (InterruptedException e) {
+//                        throw new RuntimeException(e);
+//                    }
                 }
             };
 
@@ -28,9 +47,15 @@ public class FirstMain {
             // If there is a long-running thread then when the control move out of Main thread (main method)
             // then the execution of the threads stop.
             thread.setDaemon(true);
+            threadList.add(thread);
             thread.start();
         }
 
+    }
+
+    private static void printThreads(List<Thread> threadList) {
+        threadList.forEach(thread -> System.out.print(thread.getState() + " "));
+        System.out.println();
     }
 
     public long primeNumber(long n){
