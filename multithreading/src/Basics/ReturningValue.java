@@ -13,7 +13,7 @@ public class ReturningValue {
         ExecutorService executorService = Executors.newCachedThreadPool();
         List<Future> futureList = new ArrayList<>();
 
-        FirstMain firstMain = new FirstMain();
+        FirstMain ReturningValue = new FirstMain();
         Scanner in = new Scanner(System.in);
         while (true){
             System.out.println("Enter n: ");
@@ -26,7 +26,7 @@ public class ReturningValue {
             Callable<String> c = new Callable() {
 
                 public String call() throws Exception {
-                   return "Prime Numbers till " + num + " : " + firstMain.primeNumber(num);
+                   return "Prime Numbers till " + num + " : " + ReturningValue.primeNumber(num);
                 }
             };
 

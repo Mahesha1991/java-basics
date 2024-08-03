@@ -25,7 +25,7 @@ public class AllThreadInfo {
         reporterThread.setDaemon(true);
         reporterThread.start();
 
-        FirstMain firstMain = new FirstMain();
+        FirstMain AllThreadInfo = new FirstMain();
         Scanner in = new Scanner(System.in);
         while (true){
             System.out.println("Enter n: ");
@@ -34,7 +34,7 @@ public class AllThreadInfo {
             Runnable r = new Runnable() {
                 @Override
                 public void run() {
-                    System.out.println("Num of primes under " + num + " is : " + firstMain.primeNumber(num));
+                    System.out.println("Num of primes under " + num + " is : " + AllThreadInfo.primeNumber(num));
 //                    try {
 //                        Thread.sleep(2000);
 //                    } catch (InterruptedException e) {

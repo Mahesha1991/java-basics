@@ -80,6 +80,10 @@ class ThisIsInSync implements  Runnable{
 
         //Synchronized needs an object Reference to be locked
         //Ideally any object in this class will work. However, good to refer this object
+        /*
+        Either we could use synchronized or we could use Locks. With locks we need to lock and unlock
+        synchronized handle this automatically
+         */
         synchronized (this){
             increment();
             System.out.println("In Sync: " + Thread.currentThread().getName() + " Increment: " + getValue());
