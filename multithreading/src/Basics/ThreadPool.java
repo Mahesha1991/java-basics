@@ -47,6 +47,7 @@ public class ThreadPool {
             };
             executorService.execute(r);
         }
+        executorService.close();
 
     }
 
